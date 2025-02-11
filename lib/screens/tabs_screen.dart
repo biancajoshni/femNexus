@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> eb335e5 (Reinitialized repository)
+import 'home_page.dart';
 import 'health_page.dart';
 import 'career_page.dart';
 import 'community_page.dart';
@@ -17,10 +14,7 @@ class TabsScreen extends StatefulWidget {
 }
 
 class _TabsScreenState extends State<TabsScreen> {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> eb335e5 (Reinitialized repository)
+
   int _selectedIndex = 0;
 
   final List<Widget> _pages = [
@@ -36,11 +30,6 @@ class _TabsScreenState extends State<TabsScreen> {
       _selectedIndex = index;
     });
   }
-<<<<<<< HEAD
-=======
-=======
->>>>>>> f2d3c5a (Reinitialized repository)
->>>>>>> eb335e5 (Reinitialized repository)
 
   @override
   Widget build(BuildContext context) {

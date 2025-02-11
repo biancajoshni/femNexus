@@ -5,7 +5,6 @@ class CareerPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-<<<<<<< HEAD
     return Column(
       children: [
         Container(
@@ -398,11 +397,6 @@ class CareerPage extends StatelessWidget {
           ),
         ),
       ],
-=======
-    return Scaffold(
-      appBar: AppBar(title: Text('Career'), backgroundColor: Colors.purple[800]),
-      body: Center(child: Text('Career Page Content')),
->>>>>>> eb335e5 (Reinitialized repository)
     );
   }
 }
