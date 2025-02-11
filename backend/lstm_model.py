@@ -4,7 +4,7 @@ from tensorflow.keras.models import load_model
 from sklearn.preprocessing import MinMaxScaler
 
 # Load trained LSTM model
-model = load_model("lstm_period_tracker.h5")
+model = load_model("D:\\femNexus-1\\backend\\model\model\\lstm_period_model.h5")
 scaler = MinMaxScaler()
 
 # Save the scaler

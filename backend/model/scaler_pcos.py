@@ -3,7 +3,7 @@ import pandas as pd
 from sklearn.preprocessing import StandardScaler
 
 # Load dataset
-df = pd.read_csv("PCOS.csv")
+df = pd.read_csv("D:\\femNexus-1\\PCOS.csv")
 
 # Drop unnecessary columns
 df = df.drop(columns=['Exercise_Type', 'Exercise_Benefit'])
