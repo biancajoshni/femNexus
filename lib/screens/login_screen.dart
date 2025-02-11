@@ -1,8 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import '../screens/tabs_screen.dart';
-import '../screens/register_screen.dart';
-import '../screens/forgot_password_screen.dart';
+import 'tabs_screen.dart';  // Import TabsScreen
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -26,6 +24,20 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   @override
+  void initState() {
+    super.initState();
+    _checkLoginStatus();  // Check if the user is already logged in when the login screen is loaded
+  }
+
+  void _checkLoginStatus() async {
+    User? user = _auth.currentUser;
+    if (user != null) {
+      // If the user is already logged in, navigate directly to TabsScreen
+      Navigator.pushReplacementNamed(context, TabsScreen.id);
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -33,9 +45,7 @@ class _LoginScreenState extends State<LoginScreen> {
         title: const Text("FemNexus"),
         leading: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Image.asset(
-            'assets/logo.png', // Replace with actual logo asset
-          ),
+          child: Image.asset('assets/logo.png'),
         ),
       ),
       body: Center(
@@ -45,18 +55,9 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.asset(
-                  'assets/login_illustration.png', // Add the appropriate image asset
-                  height: 200,
-                ),
+                Image.asset('assets/login_illustration.png', height: 200),
                 const SizedBox(height: 20),
-                const Text(
-                  "Welcome to FemNexus!",
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
+                const Text("Welcome to FemNexus!", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
                 const SizedBox(height: 20),
                 Form(
                   key: _formKey,
@@ -68,17 +69,12 @@ class _LoginScreenState extends State<LoginScreen> {
                           hintText: "Enter your email",
                           filled: true,
                           fillColor: Colors.white,
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(30),
-                            borderSide: BorderSide.none,
-                          ),
+                          border: OutlineInputBorder(borderRadius: BorderRadius.circular(30), borderSide: BorderSide.none),
                           contentPadding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
                         ),
                         keyboardType: TextInputType.emailAddress,
                         validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Email is required';
-                          }
+                          if (value == null || value.isEmpty) return 'Email is required';
                           return null;
                         },
                       ),
@@ -90,18 +86,12 @@ class _LoginScreenState extends State<LoginScreen> {
                           hintText: "Enter Password",
                           filled: true,
                           fillColor: Colors.white,
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(30),
-                            borderSide: BorderSide.none,
-                          ),
+                          border: OutlineInputBorder(borderRadius: BorderRadius.circular(30), borderSide: BorderSide.none),
                           contentPadding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
                         ),
                         validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Password is required';
-                          } else if (value.length < 6) {
-                            return 'Password should be at least 6 characters';
-                          }
+                          if (value == null || value.isEmpty) return 'Password is required';
+                          if (value.length < 6) return 'Password should be at least 6 characters';
                           return null;
                         },
                       ),
@@ -110,12 +100,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         alignment: Alignment.centerRight,
                         child: TextButton(
                           onPressed: () {
-                            Navigator.of(context).pushNamed(ForgotPasswordScreen.id);
+                            // Navigate to forgot password page
                           },
-                          child: const Text(
-                            "Forgot Password",
-                            style: TextStyle(color: Colors.purple),
-                          ),
+                          child: const Text("Forgot Password", style: TextStyle(color: Colors.purple)),
                         ),
                       ),
                       const SizedBox(height: 20),
@@ -123,26 +110,22 @@ class _LoginScreenState extends State<LoginScreen> {
                         onPressed: () {
                           final isValid = _formKey.currentState!.validate();
                           if (isValid) {
-                            _auth
-                                .signInWithEmailAndPassword(
-                                  email: _emailController.text,
-                                  password: _passwordController.text)
+                            _auth.signInWithEmailAndPassword(email: _emailController.text, password: _passwordController.text)
                                 .then((value) {
+                              // After successful login, navigate to TabsScreen
                               Navigator.pushReplacementNamed(context, TabsScreen.id);
+                            }).catchError((e) {
+                              // Handle login error (if any)
+                              ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.toString())));
                             });
                           }
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.purple,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30),
-                          ),
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
                           padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 100),
                         ),
-                        child: const Text(
-                          "Sign In",
-                          style: TextStyle(color: Colors.white, fontSize: 16),
-                        ),
+                        child: const Text("Sign In", style: TextStyle(color: Colors.white, fontSize: 16)),
                       ),
                       const SizedBox(height: 20),
                       Row(
@@ -151,12 +134,9 @@ class _LoginScreenState extends State<LoginScreen> {
                           const Text("Don't have an account? "),
                           TextButton(
                             onPressed: () {
-                              Navigator.of(context).pushNamed(RegisterScreen.id);
+                              // Navigate to the RegisterScreen
                             },
-                            child: const Text(
-                              "Sign Up",
-                              style: TextStyle(color: Colors.purple, fontWeight: FontWeight.bold),
-                            ),
+                            child: const Text("Sign Up", style: TextStyle(color: Colors.purple, fontWeight: FontWeight.bold)),
                           ),
                         ],
                       ),

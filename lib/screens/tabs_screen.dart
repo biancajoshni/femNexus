@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'home_page.dart';
 import 'health_page.dart';
 import 'career_page.dart';
 import 'community_page.dart';
@@ -13,9 +14,11 @@ class TabsScreen extends StatefulWidget {
 }
 
 class _TabsScreenState extends State<TabsScreen> {
+
   int _selectedIndex = 0;
 
   final List<Widget> _pages = [
+    HomePage(),
     HealthPage(),
     CareerPage(),
     CommunityPage(),
