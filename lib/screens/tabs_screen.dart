@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> eb335e5 (Reinitialized repository)
 import 'health_page.dart';
 import 'career_page.dart';
 import 'community_page.dart';
 import 'sos_page.dart';
-import 'home_page.dart';
 
 class TabsScreen extends StatefulWidget {
   const TabsScreen({super.key});
@@ -14,6 +17,10 @@ class TabsScreen extends StatefulWidget {
 }
 
 class _TabsScreenState extends State<TabsScreen> {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> eb335e5 (Reinitialized repository)
   int _selectedIndex = 0;
 
   final List<Widget> _pages = [
@@ -29,41 +36,41 @@ class _TabsScreenState extends State<TabsScreen> {
       _selectedIndex = index;
     });
   }
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> f2d3c5a (Reinitialized repository)
+>>>>>>> eb335e5 (Reinitialized repository)
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _pages[_selectedIndex], // Display selected page
+      body: _pages[_selectedIndex],  // Display selected page
       bottomNavigationBar: BottomNavigationBar(
-  type: BottomNavigationBarType.fixed,
-  currentIndex: _selectedIndex,
-  onTap: _onItemTapped,
-  selectedItemColor: Colors.purple[900],
-  unselectedItemColor: Colors.black54,
-  items: [
-    BottomNavigationBarItem(
-      icon: Icon(Icons.home),
-      label: 'Home',
-    ),
-    BottomNavigationBarItem(
-      icon: Icon(Icons.health_and_safety),
-      label: 'Health',
-    ),
-    BottomNavigationBarItem(
-      icon: Icon(Icons.work),
-      label: 'Career',
-    ),
-    BottomNavigationBarItem(
-      icon: Icon(Icons.groups),
-      label: 'Community',
-    ),
-    BottomNavigationBarItem(
-      icon: Icon(Icons.sos),
-      label: 'SOS',
-    ),
-  ],
-),
-
+        type: BottomNavigationBarType.fixed,
+        currentIndex: _selectedIndex,
+        onTap: _onItemTapped,
+        selectedItemColor: Colors.purple[900],
+        unselectedItemColor: Colors.black54,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.health_and_safety),
+            label: 'Health',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.work),
+            label: 'Career',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.groups),
+            label: 'Community',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.sos),
+            label: 'SOS',
+          ),
+        ],
+      ),
     );
   }
 }
