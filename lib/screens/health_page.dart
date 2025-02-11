@@ -5,7 +5,6 @@ class HealthPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-<<<<<<< HEAD
     return Column(
       children: [
         Container(
@@ -394,11 +393,9 @@ class HealthPage extends StatelessWidget {
           ),
         ),
       ],
-=======
     return Scaffold(
       appBar: AppBar(title: Text('Health'), backgroundColor: Colors.purple[800]),
       body: Center(child: Text('Health Page Content')),
->>>>>>> eb335e5 (Reinitialized repository)
     );
   }
 }
