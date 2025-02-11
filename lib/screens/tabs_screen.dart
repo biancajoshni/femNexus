@@ -19,7 +19,7 @@ class _TabsScreenState extends State<TabsScreen> {
     HealthPage(),
     CareerPage(),
     CommunityPage(),
-    SOSPage(),
+    SosPage(),
   ];
 
   void _onItemTapped(int index) {
@@ -31,7 +31,7 @@ class _TabsScreenState extends State<TabsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _pages[_selectedIndex],  // Display selected page
+      body: _pages[_selectedIndex], // Display selected page
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         currentIndex: _selectedIndex,
