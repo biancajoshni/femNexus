@@ -1,7 +1,6 @@
-// TODO Implement this library.
 import 'package:flutter/material.dart';
 
-class SosPage extends StatelessWidget {
+class Breastcancer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -101,23 +100,90 @@ class SosPage extends StatelessWidget {
                 ),
               ),
               Positioned(
-                left: 37,
-                top: 83,
+                left: 21,
+                top: 141,
+                child: Container(
+                  width: 334,
+                  height: 602,
+                  decoration: BoxDecoration(color: Color(0xFFD9D9D9)),
+                ),
+              ),
+              Positioned(
+                left: 42,
+                top: 553,
+                child: Container(
+                  width: 282,
+                  height: 60,
+                  decoration: BoxDecoration(color: Color(0xFFE2BAE6)),
+                ),
+              ),
+              Positioned(
+                left: 34,
+                top: 189,
                 child: SizedBox(
-                  width: 301,
-                  height: 24,
+                  width: 307,
+                  height: 153,
                   child: SizedBox(
-                    width: 301,
-                    height: 24,
+                    width: 307,
+                    height: 153,
+                    child: Text.rich(
+                      TextSpan(
+                        children: [
+                          TextSpan(
+                            text:
+                                'Your health matters! Breast cancer is one of the most common cancers among women, but early detection can save lives. This section is dedicated to empowering you with knowledge, support, and resources to take charge of your health.\n\n',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 12,
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w600,
+                              letterSpacing: 0.72,
+                            ),
+                          ),
+                          TextSpan(
+                            text: '🌸 What You’ll Find Here:',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 14,
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w800,
+                              letterSpacing: 0.84,
+                            ),
+                          ),
+                        ],
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ),
+              ),
+              Positioned(
+                left: 42,
+                top: 475,
+                child: Container(
+                  width: 282,
+                  height: 60,
+                  decoration: BoxDecoration(color: Color(0xFFE2BAE6)),
+                ),
+              ),
+              Positioned(
+                left: 68,
+                top: 482,
+                child: SizedBox(
+                  width: 240,
+                  height: 45,
+                  child: SizedBox(
+                    width: 240,
+                    height: 45,
                     child: Text(
-                      'Quick Help\n',
+                      '🖐️ Self-Check Guide – Step-by-step instructions with images to help you perform regular breast self-exams.',
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         color: Colors.black,
-                        fontSize: 15,
+                        fontSize: 10,
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w600,
-                        letterSpacing: 0.90,
+                        letterSpacing: 0.60,
                       ),
                     ),
                   ),
@@ -172,16 +238,16 @@ class SosPage extends StatelessWidget {
                 ),
               ),
               Positioned(
-                left: 89,
-                top: 20,
+                left: 30,
+                top: 38,
                 child: SizedBox(
-                  width: 197,
-                  height: 36,
+                  width: 315,
+                  height: 75,
                   child: SizedBox(
-                    width: 197,
-                    height: 36,
+                    width: 315,
+                    height: 75,
                     child: Text(
-                      'FemAlert',
+                      'Breast Cancer Awareness',
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         color: Colors.black,
@@ -195,8 +261,8 @@ class SosPage extends StatelessWidget {
                 ),
               ),
               Positioned(
-                left: 12,
-                top: 45,
+                left: 11,
+                top: 51,
                 child: SizedBox(
                   width: 49,
                   height: 16,
@@ -218,8 +284,8 @@ class SosPage extends StatelessWidget {
                 ),
               ),
               Positioned(
-                left: 21,
-                top: 20,
+                left: 20,
+                top: 26,
                 child: Container(
                   width: 24,
                   height: 24,
@@ -238,74 +304,80 @@ class SosPage extends StatelessWidget {
                 ),
               ),
               Positioned(
-                left: 30,
-                top: 209,
+                left: 43,
+                top: 390,
                 child: Container(
-                  width: 315,
-                  height: 81,
-                  decoration: BoxDecoration(color: Color(0xFFD9D9D9)),
-                ),
-              ),
-              Positioned(
-                left: 30,
-                top: 516,
-                child: Container(
-                  width: 315,
-                  height: 81,
-                  decoration: BoxDecoration(color: Color(0xFFD9D9D9)),
-                ),
-              ),
-              Positioned(
-                left: 30,
-                top: 371,
-                child: Container(
-                  width: 315,
-                  height: 81,
-                  decoration: BoxDecoration(color: Color(0xFFD9D9D9)),
+                  width: 282,
+                  height: 60,
+                  decoration: BoxDecoration(color: Color(0xFFE2BAE6)),
                 ),
               ),
               Positioned(
                 left: 75,
-                top: 238,
-                child: Text(
-                  'Call Emergency Contacts.',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 15,
-                    fontFamily: 'Poppins',
-                    fontWeight: FontWeight.w600,
-                    letterSpacing: 0.90,
+                top: 401,
+                child: SizedBox(
+                  width: 215,
+                  height: 45,
+                  child: SizedBox(
+                    width: 215,
+                    height: 45,
+                    child: Text(
+                      '🔍 Know the Signs – Learn about early symptoms and when to consult a doctor.',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 10,
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w600,
+                        letterSpacing: 0.60,
+                      ),
+                    ),
                   ),
                 ),
               ),
               Positioned(
-                left: 103,
-                top: 406,
-                child: Text(
-                  'Share Live Location',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 15,
-                    fontFamily: 'Poppins',
-                    fontWeight: FontWeight.w600,
-                    letterSpacing: 0.90,
+                left: 74,
+                top: 562,
+                child: SizedBox(
+                  width: 218,
+                  height: 45,
+                  child: SizedBox(
+                    width: 218,
+                    height: 45,
+                    child: Text(
+                      '🤝 Support & Stories – Hear inspiring stories from survivors and connect with a supportive community.\n',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 10,
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w600,
+                        letterSpacing: 0.60,
+                      ),
+                    ),
                   ),
                 ),
               ),
               Positioned(
-                left: 78,
-                top: 540,
-                child: Text(
-                  'Alert Friends with One Tap.',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 15,
-                    fontFamily: 'Poppins',
-                    fontWeight: FontWeight.w600,
-                    letterSpacing: 0.90,
+                left: 34,
+                top: 645,
+                child: SizedBox(
+                  width: 307,
+                  height: 31,
+                  child: SizedBox(
+                    width: 307,
+                    height: 31,
+                    child: Text(
+                      ' Stay informed, stay healthy. 💕',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 15,
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w700,
+                        letterSpacing: 0.90,
+                      ),
+                    ),
                   ),
                 ),
               ),

@@ -21,7 +21,7 @@ class _TabsScreenState extends State<TabsScreen> {
     HealthPage(),
     CareerPage(),
     CommunityPage(),
-    SOSPage(),
+    SosPage(),
   ];
 
   void _onItemTapped(int index) {
