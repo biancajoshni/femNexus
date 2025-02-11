@@ -7,14 +7,8 @@ import 'services/app_router.dart';
 import 'services/app_theme.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
 import 'package:flutter/material.dart';
-import 'package:flutter_app/services/api_service.dart';
->>>>>>> f2d3c5a (Reinitialized repository)
->>>>>>> eb335e5 (Reinitialized repository)
+import 'services/api_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -54,10 +48,6 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -91,12 +81,11 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           ElevatedButton(onPressed: _predictPCOS, child: Text("Check PCOS")),
           Text("PCOS Result: $_pcosResult"),
-          ElevatedButton(onPressed: _predictPeriod, child: Text("Predict Period")),
+          ElevatedButton(
+              onPressed: _predictPeriod, child: Text("Predict Period")),
           Text("Next Period: $_periodDate"),
         ],
       ),
     );
   }
 }
->>>>>>> f2d3c5a (Reinitialized repository)
->>>>>>> eb335e5 (Reinitialized repository)
