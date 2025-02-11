@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../services/api_service.dart';
 import 'breastcancer.dart'; // Import the new page
 import 'menstrualtracker_screen.dart';
+
 class HealthPage extends StatefulWidget {
   const HealthPage({super.key});
 
@@ -25,13 +26,12 @@ class _HealthPageState extends State<HealthPage> {
     }
   }
 
- void _navigateToTracker() {
+  void _navigateToTracker() {
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => Tracker()),
     );
   }
-
 
   void _navigateToBreastCancer() {
     Navigator.push(
@@ -97,7 +97,7 @@ class _HealthPageState extends State<HealthPage> {
                       style: const TextStyle(
                           fontSize: 16, fontWeight: FontWeight.bold)),
                   const SizedBox(height: 20),
-                  
+
                   ElevatedButton(
                     onPressed: _navigateToTracker,
                     style: ElevatedButton.styleFrom(
@@ -118,7 +118,8 @@ class _HealthPageState extends State<HealthPage> {
                   ElevatedButton(
                     onPressed: _navigateToBreastCancer,
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.pink[900], // Pink for breast cancer awareness
+                      backgroundColor:
+                          Colors.pink[900], // Pink for breast cancer awareness
                       padding: const EdgeInsets.symmetric(
                           vertical: 12, horizontal: 20),
                     ),
@@ -134,5 +135,3 @@ class _HealthPageState extends State<HealthPage> {
     );
   }
 }
-
-
