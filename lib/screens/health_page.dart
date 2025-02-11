@@ -38,15 +38,79 @@ class _HealthPageState extends State<HealthPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Health Predictions")),
-      body: Column(
-        children: [
-          ElevatedButton(onPressed: _predictPCOS, child: Text("Check PCOS")),
-          Text("PCOS Result: $_pcosResult"),
-          ElevatedButton(
-              onPressed: _predictPeriod, child: Text("Predict Period")),
-          Text("Next Period: $_periodDate"),
-        ],
+      backgroundColor: Colors.grey[200], // Light background
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            // Logo and Title Section
+            Container(
+              color: Colors.purple[100], // Background for the top section
+              padding: const EdgeInsets.symmetric(vertical: 20),
+              child: Column(
+                children: [
+                  Image.asset(
+                    'assets/logo.png', // Replace with your logo asset
+                    height: 80,
+                  ),
+                  const SizedBox(height: 10),
+                  Text(
+                    'FEMNEXUS',
+                    style: TextStyle(
+                      fontSize: 28,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.purple[900],
+                    ),
+                  ),
+                  const Text(
+                    'App for Empowering Women Health, Career, and Community',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 14, color: Colors.black54),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 20),
+
+            // Prediction Buttons Section
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                children: [
+                  ElevatedButton(
+                    onPressed: _predictPCOS,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.purple[900],
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 12, horizontal: 20),
+                    ),
+                    child: const Text("Check PCOS",
+                        style: TextStyle(color: Colors.white)),
+                  ),
+                  const SizedBox(height: 10),
+                  Text("PCOS Result: $_pcosResult",
+                      style: const TextStyle(
+                          fontSize: 16, fontWeight: FontWeight.bold)),
+                  const SizedBox(height: 20),
+                  ElevatedButton(
+                    onPressed: _predictPeriod,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.purple[900],
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 12, horizontal: 20),
+                    ),
+                    child: const Text("Predict Period",
+                        style: TextStyle(color: Colors.white)),
+                  ),
+                  const SizedBox(height: 10),
+                  Text("Next Period: $_periodDate",
+                      style: const TextStyle(
+                          fontSize: 16, fontWeight: FontWeight.bold)),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

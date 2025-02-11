@@ -14,7 +14,6 @@ class TabsScreen extends StatefulWidget {
 }
 
 class _TabsScreenState extends State<TabsScreen> {
-
   int _selectedIndex = 0;
 
   final List<Widget> _pages = [
@@ -34,7 +33,7 @@ class _TabsScreenState extends State<TabsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _pages[_selectedIndex],  // Display selected page
+      body: _pages[_selectedIndex], // Display selected page
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         currentIndex: _selectedIndex,
@@ -42,6 +41,10 @@ class _TabsScreenState extends State<TabsScreen> {
         selectedItemColor: Colors.purple[900],
         unselectedItemColor: Colors.black54,
         items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
           BottomNavigationBarItem(
             icon: Icon(Icons.health_and_safety),
             label: 'Health',
