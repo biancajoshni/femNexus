@@ -1,14 +1,13 @@
 import pickle
 import numpy as np
 import pandas as pd
-import tensorflow as tf
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import LSTM, Dense
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.model_selection import train_test_split
 
 # Load dataset
-df = pd.read_csv("menstrual_cycle_data.csv")
+df = pd.read_csv("D:\\femNexus-1\\menstrual_cycle_data.csv")
 
 # Normalize data
 scaler = MinMaxScaler()
@@ -42,9 +41,13 @@ model.compile(optimizer='adam', loss='mse')
 model.fit(X_train, y_train, epochs=50, batch_size=16, validation_data=(X_test, y_test))
 
 # Save model
-model.save("models/lstm_period_model.h5")
+model.save("model/lstm_period_model.h5")
+model.save(model_path)
+
+
 
 # Save scaler
+scaler_path = os.path.abspath("model/scaler_period.pkl")
 with open("models/scaler_period.pkl", "wb") as f:
     pickle.dump(scaler, f)
 
