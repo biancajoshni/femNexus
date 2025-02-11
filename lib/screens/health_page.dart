@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../services/api_service.dart';
-
+import 'breastcancer.dart'; // Import the new page
+import 'menstrualtracker_screen.dart';
 class HealthPage extends StatefulWidget {
   const HealthPage({super.key});
 
@@ -24,15 +25,19 @@ class _HealthPageState extends State<HealthPage> {
     }
   }
 
-  void _predictPeriod() async {
-    try {
-      String result = await ApiService.predictPeriod("2025-02-01");
-      setState(() {
-        _periodDate = result;
-      });
-    } catch (e) {
-      print("Error: $e");
-    }
+ void _navigateToTracker() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => Tracker()),
+    );
+  }
+
+
+  void _navigateToBreastCancer() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => BreastCancer()),
+    );
   }
 
   @override
@@ -92,8 +97,9 @@ class _HealthPageState extends State<HealthPage> {
                       style: const TextStyle(
                           fontSize: 16, fontWeight: FontWeight.bold)),
                   const SizedBox(height: 20),
+                  
                   ElevatedButton(
-                    onPressed: _predictPeriod,
+                    onPressed: _navigateToTracker,
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.purple[900],
                       padding: const EdgeInsets.symmetric(
@@ -106,6 +112,19 @@ class _HealthPageState extends State<HealthPage> {
                   Text("Next Period: $_periodDate",
                       style: const TextStyle(
                           fontSize: 16, fontWeight: FontWeight.bold)),
+                  const SizedBox(height: 20),
+
+                  // New Breast Cancer Button
+                  ElevatedButton(
+                    onPressed: _navigateToBreastCancer,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.pink[900], // Pink for breast cancer awareness
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 12, horizontal: 20),
+                    ),
+                    child: const Text("Breast Cancer",
+                        style: TextStyle(color: Colors.white)),
+                  ),
                 ],
               ),
             ),
@@ -115,3 +134,5 @@ class _HealthPageState extends State<HealthPage> {
     );
   }
 }
+
+
