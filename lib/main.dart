@@ -1,13 +1,11 @@
 import 'package:firebaseapp/screens/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
-
 import 'blocs/bloc_exports.dart';
 import 'services/app_router.dart';
 import 'services/app_theme.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
-import 'package:flutter/material.dart';
 import 'services/api_service.dart';
 
 void main() async {
@@ -17,15 +15,14 @@ void main() async {
   HydratedBloc.storage = await HydratedStorage.build(
       storageDirectory: await getApplicationDocumentsDirectory());
 
-  runApp(MyApp(
-    appRouter: AppRouter(),
-  ));
+  runApp(MyApp(appRouter: AppRouter()));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key, required this.appRouter});
   final AppRouter appRouter;
-  // This widget is the root of your application.
+
+  const MyApp({super.key, required this.appRouter});
+
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -36,7 +33,7 @@ class MyApp extends StatelessWidget {
       child: BlocBuilder<SwitchBloc, SwitchState>(
         builder: (context, state) {
           return MaterialApp(
-            title: 'Flutter Tasks App',
+            title: 'FemHealth App',
             theme: state.switchValue
                 ? AppThemes.appThemeData[AppTheme.darkTheme]
                 : AppThemes.appThemeData[AppTheme.lightTheme],
@@ -67,7 +64,12 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void _predictPeriod() async {
-    String result = await ApiService.predictPeriod("2025-02-01");
+    // Example cycle values; update as needed
+    double meanCycleLength = 28.0;
+    double cycleLength = 30.0;
+
+    String result =
+        await ApiService.predictMenstrualCycle(meanCycleLength, cycleLength);
     setState(() {
       _periodDate = result;
     });
@@ -76,15 +78,35 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Health App")),
-      body: Column(
-        children: [
-          ElevatedButton(onPressed: _predictPCOS, child: Text("Check PCOS")),
-          Text("PCOS Result: $_pcosResult"),
-          ElevatedButton(
-              onPressed: _predictPeriod, child: Text("Predict Period")),
-          Text("Next Period: $_periodDate"),
-        ],
+      appBar: AppBar(title: const Text("Health App")),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            ElevatedButton(
+              onPressed: _predictPCOS,
+              style: ElevatedButton.styleFrom(backgroundColor: Colors.purple),
+              child: const Text("Check PCOS",
+                  style: TextStyle(color: Colors.white)),
+            ),
+            const SizedBox(height: 10),
+            Text("PCOS Result: $_pcosResult",
+                style:
+                    const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: _predictPeriod,
+              style: ElevatedButton.styleFrom(backgroundColor: Colors.pink),
+              child: const Text("Predict Period",
+                  style: TextStyle(color: Colors.white)),
+            ),
+            const SizedBox(height: 10),
+            Text("Next Period: $_periodDate",
+                style:
+                    const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+          ],
+        ),
       ),
     );
   }

@@ -1,58 +1,54 @@
-import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class ApiService {
-  static const String baseUrl = "http://your-backend-ip:8000"; // Replace with deployed backend URL
+  static const String baseUrl = 'http://your-backend-ip:8000'; // Update with actual FastAPI server URL
 
-  // PCOS Prediction
-  static Future<String> predictPCOS(List<double> features) async {
+  /// Predicts PCOS based on feature values
+  static Future<String> predictPCOS(List<double> featureValues) async {
+    final url = Uri.parse('$baseUrl/predict_pcos');
+
     try {
-      final response = await http
-          .post(
-            Uri.parse("$baseUrl/predict_pcos/"),
-            headers: {"Content-Type": "application/json"},
-            body: jsonEncode({"features": features}),
-          )
-          .timeout(const Duration(seconds: 10)); // Timeout added
+      final response = await http.post(
+        url,
+        headers: {'Content-Type': 'application/json'},
+        body: jsonEncode({"feature_values": featureValues}),
+      );
 
       if (response.statusCode == 200) {
-        final Map<String, dynamic> responseData = jsonDecode(response.body);
-        if (responseData.containsKey("prediction")) {
-          return responseData["prediction"];
-        } else {
-          throw Exception("Unexpected response format: ${response.body}");
-        }
+        final result = jsonDecode(response.body);
+        return "✅ PCOS Prediction: ${result['pcos_prediction']}";
       } else {
-        throw Exception("Failed to predict PCOS: ${response.reasonPhrase}");
+        return "⚠️ Error: ${response.body}";
       }
     } catch (e) {
-      throw Exception("Error in predictPCOS: $e");
+      return "❌ Failed to connect to backend: $e";
     }
   }
 
-  // Menstrual Cycle Prediction
-  static Future<String> predictPeriod(String lastPeriodDate) async {
+  /// Predicts the next menstrual cycle date
+  static Future<String> predictMenstrualCycle(
+      double meanCycleLength, double cycleLength) async {
+    final url = Uri.parse('$baseUrl/predict_menstrual_cycle');
+
     try {
-      final response = await http
-          .post(
-            Uri.parse("$baseUrl/predict_period/"),
-            headers: {"Content-Type": "application/json"},
-            body: jsonEncode({"last_period_date": lastPeriodDate}),
-          )
-          .timeout(const Duration(seconds: 10)); // Timeout added
+      final response = await http.post(
+        url,
+        headers: {'Content-Type': 'application/json'},
+        body: jsonEncode({
+          "mean_cycle_length": meanCycleLength,
+          "length_of_cycle": cycleLength,
+        }),
+      );
 
       if (response.statusCode == 200) {
-        final Map<String, dynamic> responseData = jsonDecode(response.body);
-        if (responseData.containsKey("next_period_date")) {
-          return responseData["next_period_date"];
-        } else {
-          throw Exception("Unexpected response format: ${response.body}");
-        }
+        final result = jsonDecode(response.body);
+        return "✅ Predicted Next Period: ${result['predicted_next_period']}";
       } else {
-        throw Exception("Failed to predict next period: ${response.reasonPhrase}");
+        return "⚠️ Error: ${response.body}";
       }
     } catch (e) {
-      throw Exception("Error in predictPeriod: $e");
+      return "❌ Failed to connect to backend: $e";
     }
   }
 }

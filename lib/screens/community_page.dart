@@ -1,28 +1,64 @@
 import 'package:flutter/material.dart';
 
-class CommunityPage extends StatelessWidget {
+class CommunityPage extends StatefulWidget {
   const CommunityPage({super.key});
+
+  @override
+  _CommunityPageState createState() => _CommunityPageState();
+}
+
+class _CommunityPageState extends State<CommunityPage> {
+  final TextEditingController _postController = TextEditingController();
+  List<Map<String, String>> _posts = [
+    {
+      'profilePic': 'https://placehold.co/40x40',
+      'username': 'Emma Johnson',
+      'timeAgo': '2 hours ago',
+      'postText': 'Feeling so grateful for this community! The support here is amazing. 💜 #EmpoweredWomen',
+    },
+    {
+      'profilePic': 'https://placehold.co/40x40',
+      'username': 'Sarah Lee',
+      'timeAgo': '5 hours ago',
+      'postText': 'Anyone else started journaling for self-care? It’s been a game-changer for me! 📖✨',
+    },
+  ];
+
+  // Function to add a new post
+  void _addPost() {
+    if (_postController.text.isNotEmpty) {
+      setState(() {
+        _posts.insert(0, {
+          'profilePic': 'https://placehold.co/40x40', // You can update this to fetch real user images
+          'username': 'You', // Ideally, get the logged-in username
+          'timeAgo': 'Just now',
+          'postText': _postController.text,
+        });
+      });
+      _postController.clear();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[200], // Light background
+      backgroundColor: Colors.purple[50], // Soft background
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          // Logo and Title Section
+          // Header Section
           Container(
-            color: Colors.purple[100], // Background for the top section
+            color: Colors.purple[200],
             padding: const EdgeInsets.symmetric(vertical: 20),
             child: Column(
               children: [
                 Image.asset(
-                  'assets/logo.png', // Replace with your logo asset
+                  'assets/logo.png', // Replace with your actual logo asset
                   height: 80,
                 ),
                 const SizedBox(height: 10),
                 Text(
-                  'FEMNEXUS',
+                  'FemCommunity',
                   style: TextStyle(
                     fontSize: 28,
                     fontWeight: FontWeight.bold,
@@ -30,7 +66,7 @@ class CommunityPage extends StatelessWidget {
                   ),
                 ),
                 const Text(
-                  'App for Empowering Women Health, Career, and Community',
+                  'A space to share, support, and grow together 💜',
                   textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 14, color: Colors.black54),
                 ),
@@ -42,31 +78,18 @@ class CommunityPage extends StatelessWidget {
 
           // Community Feed Section
           Expanded(
-            child: ListView(
+            child: ListView.builder(
               padding: const EdgeInsets.symmetric(horizontal: 20),
-              children: [
-                _communityPost(
-                  profilePic: 'https://placehold.co/40x40',
-                  username: 'Emma Johnson',
-                  timeAgo: '2 hours ago',
-                  postText:
-                      'Feeling so grateful for this community! The support here is amazing. 💜 #EmpoweredWomen',
-                ),
-                _communityPost(
-                  profilePic: 'https://placehold.co/40x40',
-                  username: 'Sarah Lee',
-                  timeAgo: '5 hours ago',
-                  postText:
-                      'Anyone else started journaling for self-care? It’s been a game-changer for me! 📖✨',
-                ),
-                _communityPost(
-                  profilePic: 'https://placehold.co/40x40',
-                  username: 'Olivia Patel',
-                  timeAgo: '1 day ago',
-                  postText:
-                      'Looking for recommendations on women-led businesses to support. Drop your favorites! 💜',
-                ),
-              ],
+              itemCount: _posts.length,
+              itemBuilder: (context, index) {
+                final post = _posts[index];
+                return _communityPost(
+                  profilePic: post['profilePic']!,
+                  username: post['username']!,
+                  timeAgo: post['timeAgo']!,
+                  postText: post['postText']!,
+                );
+              },
             ),
           ),
 
@@ -74,21 +97,6 @@ class CommunityPage extends StatelessWidget {
 
           // Post Creation Box
           _postCreationBox(),
-
-          // Bottom Navigation Bar
-          Container(
-            color: Colors.purple[300],
-            padding: const EdgeInsets.symmetric(vertical: 10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                _bottomNavItem('Health', Icons.favorite, Colors.purple[700]),
-                _bottomNavItem('Career', Icons.work, Colors.purple[700]),
-                _bottomNavItem('Community', Icons.groups, Colors.white, selected: true),
-                _bottomNavItem('SOS', Icons.warning, Colors.purple[700]),
-              ],
-            ),
-          ),
         ],
       ),
     );
@@ -172,6 +180,7 @@ class CommunityPage extends StatelessWidget {
           const SizedBox(width: 10),
           Expanded(
             child: TextField(
+              controller: _postController,
               decoration: InputDecoration(
                 hintText: "Write your post here...",
                 border: InputBorder.none,
@@ -185,29 +194,11 @@ class CommunityPage extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20),
               ),
             ),
-            onPressed: () {},
+            onPressed: _addPost, // Call _addPost when clicked
             child: const Text("Post", style: TextStyle(color: Colors.white)),
           ),
         ],
       ),
-    );
-  }
-
-  // Bottom Navigation Item
-  Widget _bottomNavItem(String label, IconData icon, Color color, {bool selected = false}) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Icon(icon, color: selected ? Colors.white : color, size: 28),
-        Text(
-          label,
-          style: TextStyle(
-            fontSize: 12,
-            fontWeight: FontWeight.w500,
-            color: selected ? Colors.white : color,
-          ),
-        ),
-      ],
     );
   }
 }

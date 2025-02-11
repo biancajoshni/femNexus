@@ -1,56 +1,66 @@
-from fastapi import FastAPI
+import os
 import pickle
 import numpy as np
-from pydantic import BaseModel
+import pandas as pd
 from tensorflow.keras.models import load_model
-from datetime import datetime, timedelta
+from sklearn.preprocessing import StandardScaler
+from fastapi import FastAPI
 
-# Load PCOS Model & Scaler
-with open("models/pcos_model.pkl", "rb") as f:
-    pcos_model = pickle.load(f)
+# Disable GPU to avoid CUDA errors
+os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 
-with open("models/scaler_pcos.pkl", "rb") as f:
-    scaler_pcos = pickle.load(f)
-
-# Load LSTM Model & Scaler
-lstm_model = load_model("models/lstm_period_model.h5")
-
-with open("models/scaler_period.pkl", "rb") as f:
-    scaler_period = pickle.load(f)
-
-# FastAPI Instance
 app = FastAPI()
 
-# PCOS Prediction Input Model
-class PCOSInput(BaseModel):
-    features: list
+# Correct file paths
+LSTM_MODEL_PATH = r"D:\femNexus-1\backend\models\lstm_period_model.h5"
+PCOS_MODEL_PATH = r"D:\femNexus-1\backend\models\pcos_model.pkl"
+SCALER_PCOS_PATH = r"D:\femNexus-1\backend\models\scaler_pcos.pkl"
 
-# Menstrual Cycle Prediction Input Model
-class PeriodInput(BaseModel):
-    last_period_date: str
+# Load LSTM Model for menstrual cycle prediction
+try:
+    if os.path.exists(LSTM_MODEL_PATH):
+        lstm_model = load_model(LSTM_MODEL_PATH)
+        print(" LSTM Model Loaded Successfully!")
+    else:
+        print(f" ERROR: LSTM model file not found at {LSTM_MODEL_PATH}")
+except Exception as e:
+    print(f" ERROR loading LSTM model: {str(e)}")
 
-@app.post("/predict_pcos/")
-def predict_pcos(data: PCOSInput):
-    input_features = np.array(data.features).reshape(1, -1)
-    input_scaled = scaler_pcos.transform(input_features)
-    prediction = pcos_model.predict(input_scaled)
-    result = "PCOS Positive" if prediction[0] == 1 else "PCOS Negative"
-    return {"prediction": result}
+# Load PCOS Prediction Model
+try:
+    if os.path.exists(PCOS_MODEL_PATH):
+        with open(PCOS_MODEL_PATH, "rb") as f:
+            pcos_model = pickle.load(f)
+        print(" PCOS Model Loaded Successfully!")
+    else:
+        print(f" ERROR: PCOS model file not found at {PCOS_MODEL_PATH}")
+except Exception as e:
+    print(f" ERROR loading PCOS model: {str(e)}")
 
-@app.post("/predict_period/")
-def predict_period(data: PeriodInput):
-    last_period_date = datetime.strptime(data.last_period_date, "%Y-%m-%d")
+# Load PCOS Scaler
+try:
+    if os.path.exists(SCALER_PCOS_PATH):
+        with open(SCALER_PCOS_PATH, "rb") as f:
+            scaler_pcos = pickle.load(f)
+        print(" PCOS Scaler Loaded Successfully!")
+    else:
+        print(f" ERROR: PCOS scaler file not found at {SCALER_PCOS_PATH}")
+except Exception as e:
+    print(f" ERROR loading PCOS scaler: {str(e)}")
 
-    # Dummy input for LSTM (Modify based on your dataset)
-    input_data = np.zeros((1, 10, 2))  
-    prediction = lstm_model.predict(input_data)
 
-    predicted_cycle_length = max(28, min(35, prediction[0][0]))  
-    next_period_date = last_period_date + timedelta(days=int(predicted_cycle_length))
-    
-    return {"next_period_date": next_period_date.strftime('%Y-%m-%d')}
+# Example API Endpoints
+@app.get("/")
+def home():
+    return {"message": "FemHealth Backend is Running!"}
 
-# Run API Locally
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+@app.get("/predict_period/")
+def predict_period():
+    return {"message": "Period prediction will be implemented here!"}
+
+@app.get("/predict_pcos/")
+def predict_pcos():
+    return {"message": "PCOS prediction will be implemented here!"}
+
+# Run FastAPI with:
+# uvicorn main:app --reload
