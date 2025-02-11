@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebaseapp/screens/register_screen.dart';
 import 'package:flutter/material.dart';
 import 'tabs_screen.dart';  // Import TabsScreen
 
@@ -134,7 +135,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           const Text("Don't have an account? "),
                           TextButton(
                             onPressed: () {
-                              // Navigate to the RegisterScreen
+                               Navigator.pushReplacementNamed(context, RegisterScreen.id);
                             },
                             child: const Text("Sign Up", style: TextStyle(color: Colors.purple, fontWeight: FontWeight.bold)),
                           ),

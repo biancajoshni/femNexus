@@ -1,316 +1,128 @@
-// TODO Implement this library.
 import 'package:flutter/material.dart';
 
 class SosPage extends StatelessWidget {
+  const SosPage({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          width: 375,
-          height: 812,
-          clipBehavior: Clip.antiAlias,
-          decoration: BoxDecoration(color: Color(0xFFF6F6F6)),
-          child: Stack(
-            children: [
-              Positioned(
-                left: 39,
-                top: 759,
-                child: Container(
-                  width: 35,
-                  height: 36,
-                  padding: const EdgeInsets.only(
-                    top: 3,
-                    left: 4.38,
-                    right: 4.38,
-                    bottom: 4.50,
-                  ),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      //,
-                    ],
-                  ),
+    return Scaffold(
+      backgroundColor: Colors.purple[50], // Light purple background
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          // Logo and Title Section
+          Container(
+            color: Colors.purple[100], // Soft Purple Theme
+            padding: const EdgeInsets.symmetric(vertical: 20),
+            child: Column(
+              children: [
+                Image.asset(
+                  'assets/logo.png', // Replace with your actual logo asset
+                  height: 80,
                 ),
-              ),
-              Positioned(
-                left: 0,
-                top: 752,
-                child: Container(
-                  width: 375,
-                  height: 59,
-                  decoration: BoxDecoration(color: Color(0xFFC7AFC9)),
-                ),
-              ),
-              Positioned(
-                left: 33,
-                top: 787,
-                child: Text(
-                  'health',
-                  textAlign: TextAlign.center,
+                const SizedBox(height: 10),
+                Text(
+                  'FEMNEXUS',
                   style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 12,
-                    fontFamily: 'Montserrat',
-                    fontWeight: FontWeight.w500,
+                    fontSize: 28,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.purple[900],
                   ),
                 ),
-              ),
-              Positioned(
-                left: 123,
-                top: 787,
-                child: Text(
-                  'career',
+                const Text(
+                  'Ensuring Women’s Safety, Anytime, Anywhere',
                   textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 12,
-                    fontFamily: 'Montserrat',
-                    fontWeight: FontWeight.w500,
-                  ),
+                  style: TextStyle(fontSize: 14, color: Colors.black54),
                 ),
-              ),
-              Positioned(
-                left: 197,
-                top: 787,
-                child: Text(
-                  'community',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 12,
-                    fontFamily: 'Montserrat',
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 311,
-                top: 787,
-                child: Text(
-                  'SOS',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 12,
-                    fontFamily: 'Montserrat',
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 37,
-                top: 83,
-                child: SizedBox(
-                  width: 301,
-                  height: 24,
-                  child: SizedBox(
-                    width: 301,
-                    height: 24,
-                    child: Text(
-                      'Quick Help\n',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 15,
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w600,
-                        letterSpacing: 0.90,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 129,
-                top: 762,
-                child: Container(
-                  width: 24,
-                  height: 24,
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Container(width: 24, height: 24, child: Stack()),
-                    ],
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 223,
-                top: 762,
-                child: Container(
-                  width: 24,
-                  height: 24,
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Container(width: 24, height: 24, child: Stack()),
-                    ],
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 311,
-                top: 762,
-                child: Container(
-                  width: 24,
-                  height: 24,
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Container(width: 24, height: 24, child: Stack()),
-                    ],
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 89,
-                top: 20,
-                child: SizedBox(
-                  width: 197,
-                  height: 36,
-                  child: SizedBox(
-                    width: 197,
-                    height: 36,
-                    child: Text(
-                      'FemAlert',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 30,
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w600,
-                        letterSpacing: 1.80,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 12,
-                top: 45,
-                child: SizedBox(
-                  width: 49,
-                  height: 16,
-                  child: SizedBox(
-                    width: 49,
-                    height: 16,
-                    child: Text(
-                      'home',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Color(0xFFC7AFC9),
-                        fontSize: 10,
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w800,
-                        letterSpacing: 0.60,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 21,
-                top: 20,
-                child: Container(
-                  width: 24,
-                  height: 24,
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 2, vertical: 5),
-                  clipBehavior: Clip.antiAlias,
-                  decoration: BoxDecoration(),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      //,
-                    ],
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 30,
-                top: 209,
-                child: Container(
-                  width: 315,
-                  height: 81,
-                  decoration: BoxDecoration(color: Color(0xFFD9D9D9)),
-                ),
-              ),
-              Positioned(
-                left: 30,
-                top: 516,
-                child: Container(
-                  width: 315,
-                  height: 81,
-                  decoration: BoxDecoration(color: Color(0xFFD9D9D9)),
-                ),
-              ),
-              Positioned(
-                left: 30,
-                top: 371,
-                child: Container(
-                  width: 315,
-                  height: 81,
-                  decoration: BoxDecoration(color: Color(0xFFD9D9D9)),
-                ),
-              ),
-              Positioned(
-                left: 75,
-                top: 238,
-                child: Text(
-                  'Call Emergency Contacts.',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 15,
-                    fontFamily: 'Poppins',
-                    fontWeight: FontWeight.w600,
-                    letterSpacing: 0.90,
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 103,
-                top: 406,
-                child: Text(
-                  'Share Live Location',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 15,
-                    fontFamily: 'Poppins',
-                    fontWeight: FontWeight.w600,
-                    letterSpacing: 0.90,
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 78,
-                top: 540,
-                child: Text(
-                  'Alert Friends with One Tap.',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 15,
-                    fontFamily: 'Poppins',
-                    fontWeight: FontWeight.w600,
-                    letterSpacing: 0.90,
-                  ),
-                ),
-              ),
-            ],
+              ],
+            ),
           ),
+
+          const SizedBox(height: 20),
+
+          // Page Title
+          Center(
+            child: Text(
+              'Quick Help & Emergency Support',
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w600,
+                color: Colors.purple[900],
+              ),
+            ),
+          ),
+
+          const SizedBox(height: 20),
+
+          // Emergency Options Section
+          Container(
+            margin: const EdgeInsets.symmetric(horizontal: 20),
+            padding: const EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              color: Colors.purple[50],
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Column(
+              children: [
+                Text(
+                  'Emergency Actions',
+                  style: TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.purple[700],
+                  ),
+                ),
+                const SizedBox(height: 10),
+
+                // Emergency Feature Cards
+                _sosFeatureCard('Call Emergency Contacts', Icons.call, Colors.purple[300]!),
+                _sosFeatureCard('Share Live Location', Icons.location_pin, Colors.purple[400]!),
+                _sosFeatureCard('Send Distress Alert', Icons.notification_important, Colors.purple[500]!),
+                _sosFeatureCard('Nearby Safe Spots', Icons.map, Colors.purple[600]!),
+              ],
+            ),
+          ),
+
+          const Spacer(),
+
+         
+        ],
+      ),
+    );
+  }
+
+  // Helper function for SOS feature cards
+  Widget _sosFeatureCard(String title, IconData icon, Color color) {
+    return Container(
+      margin: const EdgeInsets.symmetric(vertical: 5),
+      padding: const EdgeInsets.all(15),
+      decoration: BoxDecoration(
+        color: color,
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Icon(icon, size: 30, color: Colors.white),
+          const SizedBox(width: 10),
+          Text(
+            title,
+            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),
+          ),
+        ],
+      ),
+    );
+  }
+
+  // Helper function for bottom navigation items
+  Widget _bottomNavItem(String label, IconData icon, Color color, {bool selected = false}) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Icon(icon, size: 24, color: color),
+        Text(
+          label,
+          style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500, color: color),
         ),
       ],
     );

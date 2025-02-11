@@ -43,7 +43,7 @@ class Tracker extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 20),
-              
+
               // Cycle Progress Circle
               Container(
                 width: 200,

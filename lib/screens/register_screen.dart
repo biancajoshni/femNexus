@@ -43,11 +43,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.asset(
-                  'assets/register_illustration.png', // Add the appropriate image asset
-                  height: 200,
-                ),
-                const SizedBox(height: 20),
+              const SizedBox(height: 20),
                 const Text(
                   "Create Your Account!",
                   style: TextStyle(

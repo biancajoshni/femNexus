@@ -5,396 +5,119 @@ class CareerPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          width: 375,
-          height: 812,
-          clipBehavior: Clip.antiAlias,
-          decoration: BoxDecoration(color: Color(0xFFF6F6F6)),
-          child: Stack(
-            children: [
-              Positioned(
-                left: 39,
-                top: 759,
-                child: Container(
-                  width: 35,
-                  height: 36,
-                  padding: const EdgeInsets.only(
-                    top: 3,
-                    left: 4.38,
-                    right: 4.38,
-                    bottom: 4.50,
-                  ),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      //,
-                    ],
-                  ),
+    return Scaffold(
+      backgroundColor: Colors.grey[200], // Light background
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          // Logo and Title Section
+          Container(
+            color: Colors.purple[100], // Background for the top section
+            padding: const EdgeInsets.symmetric(vertical: 20),
+            child: Column(
+              children: [
+                Image.asset(
+                  'assets/logo.png', // Replace with your logo asset
+                  height: 80,
                 ),
-              ),
-              Positioned(
-                left: 0,
-                top: 752,
-                child: Container(
-                  width: 375,
-                  height: 59,
-                  decoration: BoxDecoration(color: Color(0xFFC7AFC9)),
-                ),
-              ),
-              Positioned(
-                left: 33,
-                top: 787,
-                child: Text(
-                  'health',
-                  textAlign: TextAlign.center,
+                const SizedBox(height: 10),
+                Text(
+                  'FEMNEXUS',
                   style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 12,
-                    fontFamily: 'Montserrat',
-                    fontWeight: FontWeight.w500,
+                    fontSize: 28,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.purple[900],
                   ),
                 ),
-              ),
-              Positioned(
-                left: 123,
-                top: 787,
-                child: Text(
-                  'career',
+                const Text(
+                  'App for Empowering Women Health, Career, and Community',
                   textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 12,
-                    fontFamily: 'Montserrat',
-                    fontWeight: FontWeight.w500,
-                  ),
+                  style: TextStyle(fontSize: 14, color: Colors.black54),
                 ),
-              ),
-              Positioned(
-                left: 197,
-                top: 787,
-                child: Text(
-                  'community',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 12,
-                    fontFamily: 'Montserrat',
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 311,
-                top: 787,
-                child: Text(
-                  'SOS',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 12,
-                    fontFamily: 'Montserrat',
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 37,
-                top: 83,
-                child: SizedBox(
-                  width: 301,
-                  height: 24,
-                  child: SizedBox(
-                    width: 301,
-                    height: 24,
-                    child: Text(
-                      'Opportunities designed for you!',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 15,
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w600,
-                        letterSpacing: 0.90,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 21,
-                top: 133,
-                child: Container(
-                  width: 331,
-                  height: 168,
-                  decoration: BoxDecoration(color: Color(0xFFD9D9D9)),
-                ),
-              ),
-              Positioned(
-                left: 129,
-                top: 762,
-                child: Container(
-                  width: 24,
-                  height: 24,
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Container(width: 24, height: 24, child: Stack()),
-                    ],
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 223,
-                top: 762,
-                child: Container(
-                  width: 24,
-                  height: 24,
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Container(width: 24, height: 24, child: Stack()),
-                    ],
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 311,
-                top: 762,
-                child: Container(
-                  width: 24,
-                  height: 24,
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Container(width: 24, height: 24, child: Stack()),
-                    ],
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 74,
-                top: 20,
-                child: SizedBox(
-                  width: 239,
-                  height: 36,
-                  child: SizedBox(
-                    width: 239,
-                    height: 36,
-                    child: Text(
-                      'FemCareers',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 30,
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w600,
-                        letterSpacing: 1.80,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 12,
-                top: 45,
-                child: SizedBox(
-                  width: 49,
-                  height: 16,
-                  child: SizedBox(
-                    width: 49,
-                    height: 16,
-                    child: Text(
-                      'home',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Color(0xFFC7AFC9),
-                        fontSize: 10,
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w800,
-                        letterSpacing: 0.60,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 21,
-                top: 20,
-                child: Container(
-                  width: 24,
-                  height: 24,
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 2, vertical: 5),
-                  clipBehavior: Clip.antiAlias,
-                  decoration: BoxDecoration(),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      //,
-                    ],
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 21,
-                top: 350,
-                child: Container(
-                  width: 331,
-                  height: 73,
-                  decoration: BoxDecoration(color: Color(0xFFD9D9D9)),
-                ),
-              ),
-              Positioned(
-                left: 21,
-                top: 653,
-                child: Container(
-                  width: 331,
-                  height: 73,
-                  decoration: BoxDecoration(color: Color(0xFFD9D9D9)),
-                ),
-              ),
-              Positioned(
-                left: 77,
-                top: 671,
-                child: SizedBox(
-                  width: 212,
-                  height: 37,
-                  child: SizedBox(
-                    width: 212,
-                    height: 37,
-                    child: Text(
-                      'event4',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 30,
-                        fontFamily: 'Montserrat',
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 23,
-                top: 564,
-                child: Container(
-                  width: 331,
-                  height: 73,
-                  decoration: BoxDecoration(color: Color(0xFFD9D9D9)),
-                ),
-              ),
-              Positioned(
-                left: 76,
-                top: 580,
-                child: SizedBox(
-                  width: 212,
-                  height: 37,
-                  child: SizedBox(
-                    width: 212,
-                    height: 37,
-                    child: Text(
-                      'event3',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 30,
-                        fontFamily: 'Montserrat',
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 21,
-                top: 454,
-                child: Container(
-                  width: 331,
-                  height: 73,
-                  decoration: BoxDecoration(color: Color(0xFFD9D9D9)),
-                ),
-              ),
-              Positioned(
-                left: 73,
-                top: 476,
-                child: SizedBox(
-                  width: 212,
-                  height: 37,
-                  child: SizedBox(
-                    width: 212,
-                    height: 37,
-                    child: Text(
-                      'event2',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 30,
-                        fontFamily: 'Montserrat',
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 67,
-                top: 176,
-                child: SizedBox(
-                  width: 232,
-                  height: 82,
-                  child: SizedBox(
-                    width: 232,
-                    height: 82,
-                    child: Text(
-                      'upcoming events',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 30,
-                        fontFamily: 'Montserrat',
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 70,
-                top: 368,
-                child: SizedBox(
-                  width: 212,
-                  height: 37,
-                  child: SizedBox(
-                    width: 212,
-                    height: 37,
-                    child: Text(
-                      'event1',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 30,
-                        fontFamily: 'Montserrat',
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ],
+              ],
+            ),
           ),
+
+          const SizedBox(height: 20),
+
+          // Career Page Title
+          Center(
+            child: Text(
+              'Opportunities Designed for You!',
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w600,
+                color: Colors.purple[900],
+              ),
+            ),
+          ),
+
+          const SizedBox(height: 20),
+
+          // Upcoming Events Section
+          Container(
+            margin: const EdgeInsets.symmetric(horizontal: 20),
+            padding: const EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              color: Colors.purple[50],
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Column(
+              children: [
+                Text(
+                  'Upcoming Events',
+                  style: TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.purple[700],
+                  ),
+                ),
+                const SizedBox(height: 10),
+                
+                // Event Cards
+                _eventCard('Event 1', Colors.purple[200]!),
+                _eventCard('Event 2', Colors.purple[300]!),
+                _eventCard('Event 3', Colors.purple[400]!),
+                _eventCard('Event 4', Colors.purple[500]!),
+              ],
+            ),
+          ),
+
+          const Spacer(),
+
+         
+        ],
+      ),
+    );
+  }
+
+  // Helper function for event cards
+  Widget _eventCard(String title, Color color) {
+    return Container(
+      margin: const EdgeInsets.symmetric(vertical: 5),
+      padding: const EdgeInsets.all(15),
+      decoration: BoxDecoration(
+        color: color,
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Center(
+        child: Text(
+          title,
+          style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),
+        ),
+      ),
+    );
+  }
+
+  // Helper function for bottom navigation items
+  Widget _bottomNavItem(String label, IconData icon, Color color, {bool selected = false}) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Icon(icon, size: 24, color: color),
+        Text(
+          label,
+          style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500, color: color),
         ),
       ],
     );
